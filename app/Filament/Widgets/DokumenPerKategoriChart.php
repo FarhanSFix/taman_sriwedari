@@ -8,7 +8,7 @@ use App\Models\Documents;
 class DokumenPerKategoriChart extends ChartWidget
 {
     protected ?string $heading = 'Dokumen per Kategori';
-    protected int|string|array $columnSpan = 2;
+    protected int|string|array $columnSpan = 'half';
 
     protected string $color = 'info'; 
 

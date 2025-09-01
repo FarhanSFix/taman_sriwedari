@@ -22,6 +22,8 @@ return new class extends Migration
             ])->default('LS/TUNAI');
             $table->date('bulan_pengesahan')->nullable();
             $table->string('link')->nullable();
+            $table->string('bukti dukung')->nullable();
+            $table->string('bank')->nullable();
             $table->enum('keterangan', [
                 'Belum diaudit',
                 'Sudah diaudit',

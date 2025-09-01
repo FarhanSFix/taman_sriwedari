@@ -350,7 +350,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-900">17</h4>
+                    <h4 class="text-2xl font-bold text-gray-900">{{ $stat_total ?? 3 }}</h4>
                     <p class="text-sm text-gray-600">Total Dokumen</p>
                 </div>
                 
@@ -360,7 +360,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-900">12</h4>
+                    <h4 class="text-2xl font-bold text-gray-900">{{ $stat_approved ?? 1 }}</h4>
                     <p class="text-sm text-gray-600">Disetujui</p>
                 </div>
                 
@@ -370,7 +370,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-900">5</h4>
+                    <h4 class="text-2xl font-bold text-gray-900">{{ $stat_processing ?? 1 }}</h4>
                     <p class="text-sm text-gray-600">Dalam Proses</p>
                 </div>
                 
@@ -380,7 +380,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h4 class="text-2xl font-bold text-gray-900">8</h4>
+                    <h4 class="text-2xl font-bold text-gray-900">{{ $stat_this_month ?? 2 }}</h4>
                     <p class="text-sm text-gray-600">Bulan Ini</p>
                 </div>
             </div>

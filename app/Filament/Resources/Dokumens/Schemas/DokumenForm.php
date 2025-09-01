@@ -34,10 +34,15 @@ class DokumenForm
                     ->label('Bulan Pengesahan')
                     ->required()
                     ->format('Y-m-d'),
-                FileUpload::make('link')
-                    ->label('Link Dokumen')
-                    ->directory('uploads')
-                    ->required(),
+                FileUpload::make('Bukti bayar')
+                    ->label('Bukti bayar')
+                    ->directory('uploads'),
+                FileUpload::make('bukti dukung')
+                    ->label('Bukti Dukung')
+                    ->directory('uploads'),
+                FileUpload::make('bank')
+                    ->label('Bank')
+                    ->directory('uploads'),
                 Radio::make('keterangan')
                     ->label('Keterangan')
                     ->options([

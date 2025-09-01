@@ -21,7 +21,9 @@ class DokumensTable
                 TextColumn::make('nama')->label('Nama Dokumen')->searchable()->sortable(),
                 TextColumn::make('jenis')->label('Jenis Dokumen')->searchable()->sortable(),
                 TextColumn::make('bulan_pengesahan')->label('Bulan Pengesahan')->searchable()->sortable(),
-                TextColumn::make('link')->label('Link Dokumen')->searchable()->sortable(),
+                TextColumn::make('link')->label('Bukti bayar')->searchable()->sortable(),
+                TextColumn::make('bukti dukung')->label('Bukti Dukung')->searchable()->sortable(),
+                TextColumn::make('bank')->label('Bank')->searchable()->sortable(),
                 TextColumn::make('keterangan')->label('Keterangan')->searchable()->sortable(),
             ])
             ->filters([
