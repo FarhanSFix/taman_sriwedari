@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Taman Sriwedari</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -285,54 +286,20 @@
                                 <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">KETERANGAN</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-100">
-                            <!-- Sample Data Rows -->
-                            <tr class="table-row-hover transition-colors duration-200">
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900">1</td>
-                                <td class="px-6 py-4 text-sm text-gray-900 font-medium">Laporan Semester I</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Juni 2024</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <a href="#" class="inline-flex items-center px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg hover:bg-primary-100 transition-colors text-sm font-medium">
-                                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                        </svg>
-                                        Lihat
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Dokumen lengkap</td>
-                            </tr>
-                            <tr class="table-row-hover transition-colors duration-200">
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900">2</td>
-                                <td class="px-6 py-4 text-sm text-gray-900 font-medium">Gaji dan Upah Q2</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Juli 2024</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <a href="#" class="inline-flex items-center px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg hover:bg-primary-100 transition-colors text-sm font-medium">
-                                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                        </svg>
-                                        Lihat
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Dalam proses</td>
-                            </tr>
-                            <tr class="table-row-hover transition-colors duration-200">
-                                <td class="px-6 py-4 text-sm font-medium text-gray-900">3</td>
-                                <td class="px-6 py-4 text-sm text-gray-900 font-medium">SPP Operasional</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Agustus 2024</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <a href="#" class="inline-flex items-center px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg hover:bg-primary-100 transition-colors text-sm font-medium">
-                                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                        </svg>
-                                        Lihat
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Disetujui</td>
-                            </tr>
+                        <tbody>
+                            @foreach ($documents as $doc)
+                                <tr class="table-row-hover transition-colors">
+                                    <td class="px-6 py-4 text-sm text-gray-700">{{ $loop->iteration }}</td>
+                                    <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $doc->nama }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700">{{ $doc->bulan_pengesahan }}</td>
+                                    <td class="px-6 py-4 text-sm">
+                                        <a href="{{ $doc->link }}" target="_blank" class="text-primary-600 hover:underline font-semibold">Lihat</a>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-600">{{ $doc->keterangan }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>
@@ -362,7 +329,7 @@
                         <h3 class="text-xl font-bold text-gray-900">Distribusi Jenis Dokumen</h3>
                         <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
                     </div>
-                    <canvas id="documentsChart" class="w-full"></canvas>
+                    <canvas id="documentsChart" width="400" height="200"></canvas>
                 </div>
 
                 <!-- Chart 2 -->
@@ -371,7 +338,7 @@
                         <h3 class="text-xl font-bold text-gray-900">Tren Bulanan</h3>
                         <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
                     </div>
-                    <canvas id="monthlyChart" class="w-full"></canvas>
+                    <canvas id="monthlyChart" width="400" height="200"></canvas>
                 </div>
             </div>
 
@@ -519,6 +486,76 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+const chartOptions = {
+    responsive: true,
+    plugins: {
+        legend: { display: true },
+        tooltip: { enabled: true }
+    },
+    scales: {
+        x: { beginAtZero: true },
+        y: { beginAtZero: true }
+    }
+};
+
+// Chart Dokumen
+fetch('/api/stats/documents')
+.then(res => res.json())
+.then(data => {
+    const labels = data.map(d => d.jenis);
+    const dataset = data.map(d => d.total);
+
+    new Chart(document.getElementById('documentsChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Jumlah Dokumen',
+                data: dataset,
+                backgroundColor: ['#f1770a', '#e25d05', '#fbbf24', '#ec4899'],
+                borderRadius: 8,
+                borderSkipped: false
+            }]
+        },
+        options: chartOptions
+    });
+});
+
+// Chart Bulanan
+fetch('/api/stats/monthly')
+.then(res => res.json())
+.then(data => {
+    const monthLabels = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    const dataset = monthLabels.map((_, i) => {
+        const monthData = data.find(d => d.month == i+1);
+        return monthData ? monthData.total : 0;
+    });
+
+    new Chart(document.getElementById('monthlyChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: 'Jumlah Dokumen Per Bulan',
+                data: dataset,
+                fill: true,
+                backgroundColor: 'rgba(241, 119, 10, 0.1)',
+                borderColor: '#f1770a',
+                borderWidth: 3,
+                tension: 0.4,
+                pointBackgroundColor: '#f1770a',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 8
+            }]
+        },
+        options: chartOptions
+    });
+});
+</script>
+
     <script>
         // Mobile menu functionality
         const sidebar = document.getElementById('mobileSidebar');
